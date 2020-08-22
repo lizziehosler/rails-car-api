@@ -49,7 +49,7 @@ class Api::V1::DealershipsController < ApplicationController
     private
 
     def set_dealership
-        @Dealership = Dealership.find(params[:id])
+        @dealership = Dealership.find(params[:id])
     end
 
     def dealership_params
