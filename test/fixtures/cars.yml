@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  year: 1
+  make: MyString
+  model: MyString
+  color: MyString
+  price: 1
+  dealership: one
+
+two:
+  year: 1
+  make: MyString
+  model: MyString
+  color: MyString
+  price: 1
+  dealership: two

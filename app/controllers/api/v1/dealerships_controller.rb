@@ -1,4 +1,4 @@
-class API::V1::DealershipsController < ApplicationController
+class Api::V1::DealershipsController < ApplicationController
 
     before_action :set_dealership, only: [:show, :update, :destroy]
     skip_before_action :authenticate, only: [:index, :show]
@@ -11,7 +11,8 @@ class API::V1::DealershipsController < ApplicationController
 
     #GET /dealerships/1
     def show
-        render json: { dealership: @dealership }
+        @cars = Car.where(dealership_id: params[:id])
+        render json: { dealership: @dealership, cars: @cars }
     end
 
     #POST /dealerships
@@ -36,6 +37,13 @@ class API::V1::DealershipsController < ApplicationController
     #DELETE /dealerships/1
     def destroy
         @dealership.destroy
+    end
+
+    # Get our Amazon S3 Keys for image uploads
+    def get_upload_credentials
+        @accessKey = ENV['S3_ACCESS']
+        @secretKey = ENV['S3_SECRET']
+        render json: { accessKey: @accessKey, secretKey: @secretKey}
     end
 
     private
