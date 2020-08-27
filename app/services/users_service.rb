@@ -7,7 +7,13 @@ class UsersService
     end
   
     def self.register(email, first_name, last_name, nickname, password, password_confirmation)
-      user = User.new({ email: email, first_name: first_name, last_name: last_name, nickname: nickname, password: password, password_confirmation: password_confirmation })
+      user = User.new({
+        email: email, 
+        first_name: first_name, 
+        last_name: last_name, 
+        nickname: nickname, 
+        password: password, 
+        password_confirmation: password_confirmation })
   
       return false unless user.valid?
   
