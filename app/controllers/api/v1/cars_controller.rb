@@ -1,5 +1,6 @@
 class Api::V1::CarsController < ApplicationController
-
+    before_action :set_car, only: [:show, :update, :destroy]
+    skip_before_action :authenticate, only: [:index, :show]
     def index
         @cars = Car.all
         render json: @cars
@@ -37,6 +38,9 @@ class Api::V1::CarsController < ApplicationController
     end
 
     private
+    def set_car
+        @car = Car.find(params[:id])
+    end
 
     def car_params
         params.required(:car).permit(:year, :make, :model, :color, :price, :image, :notes, :dealership_id)
