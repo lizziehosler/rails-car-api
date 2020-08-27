@@ -9,8 +9,5 @@ class AccessToken
     Digest::SHA1.hexdigest("#{@model.to_s}-#{@model.id}-#{@model.created_at}-[base_api-#{@model.id.to_s(36)}]-[#{obj}]-[#{rand(-200..200).days.ago}]")
   end
 
-  def self.digest_test(input)
-    Digest::SHA1.hexdigest(input)
-  end
 
 end

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-    validates :email, uniqueness: true
     has_secure_password
+    validates :email, uniqueness: true
+    
     
     def generate_token!
         update_attribute :token, AccessToken.new(self).generate
