@@ -3,7 +3,7 @@ class Api::V1::UsersController < ApplicationController
 
   def login
     render json: { error: "User not authenticated" }, status: 401 and return unless @user = UsersService.login(params[:email], params[:password])
-    render json: @user.prifle, status: :ok
+    render json: @user.profile, status: :ok
   end
 
   def create
