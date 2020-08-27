@@ -1,6 +1,7 @@
 class Api::V1::CarsController < ApplicationController
     before_action :set_car, only: [:show, :update, :destroy]
     skip_before_action :authenticate, only: [:index, :show]
+
     def index
         @cars = Car.all
         render json: @cars
@@ -13,7 +14,7 @@ class Api::V1::CarsController < ApplicationController
     def create
         @car = Car.new(car_params)
         if @car.save
-            render json: @car, status: create
+            render json: @car, status: created
         else  
             render json: @car.errors, status: :unprocessable_entity
         end
