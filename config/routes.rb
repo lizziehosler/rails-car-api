@@ -22,6 +22,7 @@ Rails.application.routes.draw do
         post :create
         patch :update
         delete :destroy
+        get :getCarById
       end
     end
   end
