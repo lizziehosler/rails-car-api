@@ -13,7 +13,7 @@ class Api::V1::DealershipsController < ApplicationController
     def show
         @cars = Car.where(dealership_id: params[:id])
         render json: { dealership: @dealership, cars: @cars }
-    endP
+    end
 
     #POST /dealerships
     def create
