@@ -4,7 +4,7 @@ class Api::V1::CarsController < ApplicationController
 
     def index
         @cars = Car.all
-        render json: @cars, status: ok
+        render json: @cars, status: :ok
     end
 
     def show
