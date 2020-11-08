@@ -1,7 +1,7 @@
 class Api::V1::DealershipsController < ApplicationController
 
     before_action :set_dealership, only: [:show, :update, :destroy]
-    skip_before_action :authenticate, only: [:index, :show]
+    skip_before_action :authenticate, only: [:index, :show, :getDealershipById]
 
     # GET /dealerships
     def index
@@ -13,6 +13,11 @@ class Api::V1::DealershipsController < ApplicationController
     def show
         @cars = Car.where(dealership_id: params[:id])
         render json: { dealership: @dealership, cars: @cars }
+    end
+
+    def getDealershipById
+        @dealership = Dealership.find(params[:id])
+        render json: @dealership
     end
 
     #POST /dealerships
