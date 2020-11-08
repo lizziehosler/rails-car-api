@@ -14,7 +14,7 @@ Rails.application.routes.draw do
         post :create
         patch :update
         delete :destroy
-        get :get_upload_credentials
+        get :getDealershipById
       end
       namespace :cars do
         get :index
