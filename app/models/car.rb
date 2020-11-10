@@ -1,3 +1,3 @@
 class Car < ApplicationRecord
-  belongs_to :dealership, optional: true
+  belongs_to :dealership
 end
