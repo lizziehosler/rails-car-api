@@ -1,3 +1,3 @@
 class Dealership < ApplicationRecord
-    has_many :cars,  optional: true, dependent: :destroy
+    has_many :cars, dependent: :destroy
 end
