@@ -23,6 +23,7 @@ Rails.application.routes.draw do
         patch :update
         delete :destroy
         get :getCarById
+        get :get_upload_credentials
       end
     end
   end
