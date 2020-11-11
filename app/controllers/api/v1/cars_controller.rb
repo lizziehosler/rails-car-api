@@ -1,5 +1,5 @@
 class Api::V1::CarsController < ApplicationController
-    before_action :set_car, only: [:show, :update, :destroy]
+    before_action :set_car, only: [:update, :destroy]
     skip_before_action :authenticate, only: [:index, :show, :getCarById]
 
     def index
@@ -19,7 +19,7 @@ class Api::V1::CarsController < ApplicationController
     def create
         @car = Car.new(car_params)
         if @car.save
-            render json: @car
+            render json: @car, status: :created
         else  
             render json: @car.errors, status: :unprocessable_entity
         end
@@ -44,6 +44,7 @@ class Api::V1::CarsController < ApplicationController
     end
 
     private
+
     def set_car
         @car = Car.find(params[:id])
     end
