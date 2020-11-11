@@ -9,7 +9,7 @@ class Api::V1::DealershipsController < ApplicationController
         render json: @dealerships
     end
 
-    #GET /dealerships/1
+    # GET /dealerships/1
     def show
         @cars = Car.where(dealership_id: params[:id])
         render json: { dealership: @dealership, cars: @cars }
@@ -20,7 +20,7 @@ class Api::V1::DealershipsController < ApplicationController
         render json: @dealership
     end
 
-    #POST /dealerships
+    # POST /dealerships
     def create
         @dealership = Dealership.new(dealership_params)
         if @dealership.save
@@ -30,7 +30,7 @@ class Api::V1::DealershipsController < ApplicationController
         end
     end
 
-    #PATCH/PUT /dealerships/1
+    # PATCH/PUT /dealerships/1
     def update
         if @dealership.update(dealership_params)
             render json: @dealership
@@ -39,7 +39,7 @@ class Api::V1::DealershipsController < ApplicationController
         end
     end
 
-    #DELETE /dealerships/1
+    # DELETE /dealerships/1
     def destroy
         @dealership.destroy
     end
