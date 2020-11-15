@@ -36,7 +36,7 @@ class Api::V1::CarsController < ApplicationController
     def destroy
         @car = Car.find(params[:id])
         @car.destroy
-        render json: @car, status: :destroyed
+        head :no_content
 
     end
 
