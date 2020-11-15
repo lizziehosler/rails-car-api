@@ -34,7 +34,10 @@ class Api::V1::CarsController < ApplicationController
     end
 
     def destroy
+        @car = Car.find(params[:id])
         @car.destroy
+        render json: @car, status: :destroyed
+
     end
 
     def get_upload_credentials
